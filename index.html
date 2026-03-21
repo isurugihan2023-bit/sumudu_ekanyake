@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUMUDU EKANYAKA PHOTOGRAPHY</title>
+    <meta name="description"
+        content="Sumudu Ekanyake Photography - Capturing timeless moments in weddings and special events.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Montserrat:wght@400;600;700&family=Ubuntu:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot>
+        <span class="cursor-text"></span>
+    </div>
+
+    <!-- Header Navigation -->
+    <header id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">SUMUDU EKANYAKA</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li id="nav-signin-item"><a href="#" id="open-signin" class="nav-signin-btn">Sign In</a></li>
+                    <li id="nav-user-item"
+                        style="display: none; align-items: center; justify-content: center; gap: 20px;">
+                        <a href="#" id="open-profile"
+                            style="display: flex; align-items: center; gap: 10px; cursor: pointer;"
+                            title="View Profile">
+                            <span id="nav-user-name"
+                                style="color: var(--white); font-weight: 600; text-transform: capitalize; font-size: 0.9rem;"></span>
+                        </a>
+                        <a href="#" id="signout-btn" title="Sign Out"
+                            style="color: #ff4d4d; font-size: 1.5rem; display: flex; align-items: center; transition: transform 0.2s;"><i
+                                class='bx bx-log-out'></i></a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class='bx bx-menu'></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero" style="background-image: url('assets/hero_banner_1773660065392.png');">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content fade-up">
+            <p class="hero-subtitle">Editorial & Cinematic</p>
+            <h1>SUMUDU EKANYAKA<br>PHOTOGRAPHY</h1>
+            <p class="hero-tagline">Preserving fleeting emotions into timeless visual poetry. Specializing in luxury
+                weddings and exclusive events.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Book Your Shoot</a>
+                <a href="#portfolio" class="btn btn-secondary">View Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section-padding">
+        <div class="container about-container">
+            <div class="about-image reveal">
+                <img src="assets/about_portrait_1773660080983.png" alt="Sumudu Ekanyake">
+            </div>
+            <div class="about-text reveal">
+                <h2 class="section-title">Vision & Artistry</h2>
+                <div class="title-underline"></div>
+                <p>"Inspired by the raw beauty of human connection, I craft visual narratives that transcend the
+                    ordinary. Every frame is an intentional blend of light, composition, and authentic emotion."</p>
+                <p>My approach is deeply personal—blending documentary authenticity with editorial elegance to create a
+                    legacy of images that you and your loved ones will treasure for generations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section-padding bg-dark">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title text-center">Curated Experiences</h2>
+                <div class="title-underline center-underline"></div>
+            </div>
+
+            <div class="services-grid">
+                <!-- Wedding Service -->
+                <div class="service-card reveal"
+                    style="background-image: url('assets/wedding_gallery_1_1773660095518.png');">
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <h3>Luxury Weddings</h3>
+                        <ul>
+                            <li>Comprehensive day-of coverage</li>
+                            <li>Editorial engagement sessions</li>
+                            <li>Intimate elopements</li>
+                            <li>Quiet, cinematic storytelling</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Event Service -->
+                <div class="service-card reveal"
+                    style="background-image: url('assets/event_gallery_1_1773660113202.png');">
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <h3>Exclusive Events</h3>
+                        <ul>
+                            <li>High-profile corporate gatherings</li>
+                            <li>Private milestone celebrations</li>
+                            <li>Brand activations & galas</li>
+                            <li>Discreet, professional documentation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title text-center">The Archive</h2>
+                <div class="title-underline center-underline"></div>
+
+                <div class="portfolio-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="wedding">Weddings</button>
+                    <button class="filter-btn" data-filter="event">Events</button>
+                </div>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item wedding reveal">
+                    <div class="image-wrapper">
+                        <img src="assets/wedding_gallery_1_1773660095518.png" alt="Wedding Photography">
+                        <div class="item-overlay">
+                            <span>Weddings</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item event reveal">
+                    <div class="image-wrapper">
+                        <img src="assets/event_gallery_1_1773660113202.png" alt="Event Photography">
+                        <div class="item-overlay">
+                            <span>Events</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Event Gallery Item 1 -->
+                <div class="gallery-item event reveal">
+                    <div class="image-wrapper">
+                        <img src="assets/event_photo_1.jpg" alt="Event Photography">
+                        <div class="item-overlay">
+                            <span>Events</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Event Gallery Item 2 -->
+                <div class="gallery-item event reveal">
+                    <div class="image-wrapper">
+                        <img src="assets/event_photo_2.jpg" alt="Event Photography">
+                        <div class="item-overlay">
+                            <span>Events</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Event Gallery Item 3 -->
+                <div class="gallery-item event reveal">
+                    <div class="image-wrapper">
+                        <img src="assets/event_photo_3.jpg" alt="Event Photography">
+                        <div class="item-overlay">
+                            <span>Events</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Event Gallery Item 4 -->
+                <div class="gallery-item event reveal">
+                    <div class="image-wrapper">
+                        <img src="assets/event_photo_4.jpg" alt="Event Photography">
+                        <div class="item-overlay">
+                            <span>Events</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Event Gallery Item 5 -->
+                <div class="gallery-item event reveal">
+                    <div class="image-wrapper">
+                        <img src="assets/event_photo_5.jpg" alt="Event Photography">
+                        <div class="item-overlay">
+                            <span>Events</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Wedding Gallery Item 1 -->
+                <div class="gallery-item wedding reveal">
+                    <div class="image-wrapper">
+                        <img src="assets/wedding_photo_1.jpg" alt="Wedding Photography">
+                        <div class="item-overlay">
+                            <span>Weddings</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Wedding Gallery Item 2 -->
+                <div class="gallery-item wedding reveal">
+                    <div class="image-wrapper">
+                        <img src="assets/wedding_photo_2.jpg" alt="Wedding Photography">
+                        <div class="item-overlay">
+                            <span>Weddings</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Wedding Gallery Item 3 -->
+                <div class="gallery-item wedding reveal">
+                    <div class="image-wrapper">
+                        <img src="assets/wedding_photo_3.jpg" alt="Wedding Photography">
+                        <div class="item-overlay">
+                            <span>Weddings</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Wedding Gallery Item 5 -->
+                <div class="gallery-item wedding reveal">
+                    <div class="image-wrapper">
+                        <img src="assets/wedding_photo_5.jpg" alt="Wedding Photography">
+                        <div class="item-overlay">
+                            <span>Weddings</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Wedding Gallery Item 6 -->
+                <div class="gallery-item wedding reveal">
+                    <div class="image-wrapper">
+                        <img src="assets/wedding_photo_6.jpeg" alt="Wedding Photography">
+                        <div class="item-overlay">
+                            <span>Weddings</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-padding bg-dark">
+        <div class="container contact-container reveal">
+            <div class="contact-info">
+                <h2 class="section-title">Let's Tell Your Story</h2>
+                <div class="title-underline"></div>
+                <p>Your moments deserve to be captured with intention and artistry. Reach out to inquire about
+                    availability and secure your date.</p>
+
+                <div class="contact-details">
+                    <div class="detail-item">
+                        <i class='bx bx-user'></i>
+                        <span><strong>Owner:</strong> Sumudu Ekanyake</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class='bx bxl-whatsapp'></i>
+                        <span><strong>WhatsApp:</strong> +94 71 777 7221</span>
+                    </div>
+                </div>
+
+                <div class="contact-buttons">
+                    <a href="https://wa.me/94717777221" target="_blank" class="btn btn-whatsapp">
+                        <i class='bx bxl-whatsapp'></i> Chat on WhatsApp
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100063999761728" target="_blank"
+                        class="btn btn-facebook">
+                        <i class='bx bxl-facebook-square'></i> Visit Facebook Page
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <h3>SUMUDU EKANYAKA</h3>
+                <p>PHOTOGRAPHY</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=100063999761728" target="_blank"><i
+                            class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sumudu Ekanyaka Photography. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/94717777221" target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+        <i class='bx bxl-whatsapp'></i>
+    </a>
+
+    <!-- Sign In Modal -->
+    <div id="signin-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Welcome Back</h2>
+                <div class="title-underline center-underline"></div>
+            </div>
+            <form id="signin-form" class="signin-form">
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                </div>
+                <div class="form-group options">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                <p class="signup-link">Don't have an account? <a href="#" id="switch-to-signup">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Create Account</h2>
+                <div class="title-underline center-underline"></div>
+            </div>
+            <form id="signup-form" class="signin-form">
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" name="name" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email address</label>
+                    <input type="email" id="signup-email" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" name="password" required
+                        placeholder="Create a password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                <p class="signup-link">Already have an account? <a href="#" id="switch-to-signin">Sign in</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <button class="lightbox-prev" aria-label="Previous image"><i class='bx bx-chevron-left'></i></button>
+        <button class="lightbox-next" aria-label="Next image"><i class='bx bx-chevron-right'></i></button>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <!-- Service Detail Modal -->
+    <div id="service-modal" class="modal">
+        <div class="modal-content" style="max-width: 600px; text-align: center; padding: 50px 30px;">
+            <span class="close-modal">&times;</span>
+            <div id="service-modal-body">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div id="profile-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Your Profile</h2>
+                <div class="title-underline center-underline"></div>
+            </div>
+            <form id="profile-form" class="signin-form">
+                <div class="profile-photo-section">
+                    <div id="profile-photo-preview" class="photo-preview">
+                        <!-- Injected via JS -->
+                    </div>
+                    <label for="profile-upload" class="btn btn-secondary btn-upload">Change Photo</label>
+                    <input type="file" id="profile-upload" accept="image/*" style="display: none;">
+                </div>
+                <div class="form-group">
+                    <label for="profile-name">Full Name</label>
+                    <input type="text" id="profile-name" name="name" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="profile-email">Email address</label>
+                    <input type="email" id="profile-email" name="email" required disabled
+                        title="Email cannot be changed" style="opacity: 0.6; cursor: not-allowed;">
+                </div>
+                <div class="form-group">
+                    <label for="profile-password">New Password (Optional)</label>
+                    <input type="password" id="profile-password" name="password"
+                        placeholder="Leave blank to keep current">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
