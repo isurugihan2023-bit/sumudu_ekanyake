@@ -571,9 +571,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 cursorText.textContent = 'VIEW';
             });
             el.addEventListener('mouseleave', () => {
+
                 cursorDot.classList.remove('view-mode');
                 cursorText.textContent = '';
             });
+        });
+    }
+
+    // SplitText Animation Logic matching the React specs
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && typeof SplitType !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        
+        const splitTextElements = document.querySelectorAll('.split-text-anim');
+        splitTextElements.forEach(el => {
+            // Split text down to characters
+            const split = new SplitType(el, { types: 'chars, words, lines' });
+            
+            // Replicate the 'from' and 'to' animation frames
+            gsap.fromTo(split.chars, 
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1, 
+                    y: 0,
+                    duration: 1.25,
+                    ease: 'power3.out',
+                    stagger: 0.05,
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 90%', // Threshold 0.1
+                        once: true
+                    }
+                }
+            );
         });
     }
 });
