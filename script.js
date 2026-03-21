@@ -67,46 +67,42 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Reveal elements on scroll
+    // Reveal elements on scroll (Optimized with IntersectionObserver)
     const revealElements = document.querySelectorAll('.reveal');
     
-    const revealOnScroll = () => {
-        const windowHeight = window.innerHeight;
-        const offset = 100;
-        
-        revealElements.forEach(el => {
-            const elementTop = el.getBoundingClientRect().top;
-            if (elementTop < windowHeight - offset) {
-                el.classList.add('active');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // Only reveal once for better performance
             }
         });
-    };
-
-    // Initial check
-    revealOnScroll();
-    
-    // Check on scroll
-    window.addEventListener('scroll', revealOnScroll);
-
-    // Active Navigation Link on Scroll
-    const sections = document.querySelectorAll('section');
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        links.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
+    }, {
+        rootMargin: '0px 0px -100px 0px'
     });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Active Navigation Link on Scroll (Optimized with IntersectionObserver)
+    const sections = document.querySelectorAll('section');
+    
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const currentId = entry.target.getAttribute('id');
+                links.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, {
+        rootMargin: '-40% 0px -60% 0px' // Triggers when section is near top half of screen
+    });
+
+    sections.forEach(section => navObserver.observe(section));
 
     // Portfolio Filtering
     const filterBtns = document.querySelectorAll('.filter-btn');

@@ -492,6 +492,9 @@ header.scrolled {
     /* Glare Hover variables */
     --gh-angle: -45deg;
     --gh-duration: 650ms;
+    /* Hardware acceleration */
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 /* Glare Hover Effect */
@@ -516,6 +519,7 @@ header.scrolled {
     transition: transform var(--gh-duration) ease-in-out;
     z-index: 5;
     pointer-events: none;
+    will-change: transform;
 }
 
 .gallery-item:hover::after {
@@ -537,6 +541,8 @@ header.scrolled {
     height: 100%;
     object-fit: cover;
     transition: transform 0.8s ease;
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 .item-overlay {
