@@ -619,4 +619,103 @@ document.addEventListener('DOMContentLoaded', () => {
             );
         });
     }
+    // New ScrollReveal logic for paragraphs
+    const scrollRevealElements = document.querySelectorAll('.scroll-reveal-text');
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && typeof SplitType !== 'undefined') {
+        scrollRevealElements.forEach(el => {
+            const split = new SplitType(el, { types: 'words' });
+            
+            // Replicate the React component behaviour
+            gsap.fromTo(
+                el,
+                { transformOrigin: '0% 50%', rotate: 3 },
+                {
+                    ease: 'none',
+                    rotate: 0,
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top bottom',
+                        end: 'bottom bottom',
+                        scrub: true
+                    }
+                }
+            );
+
+            gsap.fromTo(
+                split.words,
+                { opacity: 0.1, filter: 'blur(4px)', willChange: 'opacity, filter' },
+                {
+                    ease: 'none',
+                    opacity: 1,
+                    filter: 'blur(0px)',
+                    stagger: 0.05,
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top bottom-=20%',
+                        end: 'bottom bottom',
+                        scrub: true
+                    }
+                }
+            );
+        });
+    }
+
+    // Tilted Card Effect for About Image
+    const tiltedCard = document.querySelector('.about-image');
+    if (tiltedCard && typeof gsap !== 'undefined') {
+        const cardImg = tiltedCard.querySelector('.tilted-card-img');
+        const caption = tiltedCard.querySelector('.tilted-card-caption');
+        let lastY = 0;
+
+        tiltedCard.addEventListener('mousemove', (e) => {
+            const rect = tiltedCard.getBoundingClientRect();
+            const offsetX = e.clientX - rect.left - rect.width / 2;
+            const offsetY = e.clientY - rect.top - rect.height / 2;
+
+            const rotateAmplitude = 14;
+            const rotationX = (offsetY / (rect.height / 2)) * -rotateAmplitude;
+            const rotationY = (offsetX / (rect.width / 2)) * rotateAmplitude;
+
+            gsap.to(cardImg, {
+                rotateX: rotationX,
+                rotateY: rotationY,
+                scale: 1.05,
+                duration: 0.5,
+                ease: 'power2.out',
+                transformPerspective: 1200
+            });
+
+            if (caption) {
+                const velocityY = offsetY - lastY;
+                gsap.to(caption, {
+                    x: e.clientX - rect.left + 20,
+                    y: e.clientY - rect.top + 20,
+                    opacity: 1,
+                    rotate: -velocityY * 0.6,
+                    duration: 0.3,
+                    ease: 'power2.out'
+                });
+                lastY = offsetY;
+            }
+        });
+
+        tiltedCard.addEventListener('mouseleave', () => {
+            gsap.to(cardImg, {
+                rotateX: 0,
+                rotateY: 0,
+                scale: 1,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+
+            if (caption) {
+                gsap.to(caption, {
+                    opacity: 0,
+                    rotate: 0,
+                    duration: 0.4,
+                    ease: 'power2.out'
+                });
+            }
+        });
+    }
 });
