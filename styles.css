@@ -756,6 +756,21 @@ footer {
     letter-spacing: 2px;
 }
 
+.gradient-text-anim {
+    background-image: linear-gradient(to right, #5227FF, #FF9FFC, #B19EEF, #5227FF);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 8s ease-in-out infinite alternate;
+    display: inline-block;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
 .footer-brand p {
     color: var(--neutral-gray);
     letter-spacing: 4px;
