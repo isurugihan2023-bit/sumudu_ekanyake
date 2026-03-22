@@ -345,6 +345,33 @@ header.scrolled {
 
 .about-image {
     position: relative;
+    perspective: 1200px;
+}
+
+.tilted-card-img {
+    will-change: transform;
+    transform-style: preserve-3d;
+}
+
+.tilted-card-caption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--white);
+    color: var(--primary-dark);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: var(--font-secondary);
+    pointer-events: none;
+    opacity: 0;
+    z-index: 10;
+    will-change: transform, opacity;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
 }
 
 .about-image img {
@@ -954,69 +981,68 @@ footer {
     text-decoration: underline;
 }
 
-.nav-signin-btn.star-border-container {
-    display: inline-block;
-    position: relative;
-    padding: 1px;
+.nav-signin-btn {
     border-radius: 4px;
     margin-left: 10px;
-    overflow: hidden;
-    text-decoration: none;
-    background: transparent;
-    border: none;
 }
 
 .nav-signin-btn::after {
     display: none !important;
 }
 
-.nav-signin-btn .inner-content {
-    background-color: transparent;
-    color: var(--white);
-    padding: 8px 18px;
-    border-radius: 3px;
+/* Star Border Button CSS */
+.star-border-container {
     position: relative;
-    z-index: 1;
-    display: block;
-    height: 100%;
-    transition: var(--transition);
-}
-
-header.scrolled .nav-signin-btn .inner-content {
-    background-color: var(--primary-dark);
-}
-
-.nav-signin-btn:hover .inner-content {
-    background-color: var(--light-silver);
-    color: var(--primary-dark);
+    overflow: hidden;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1px; /* thickness */
+    border: none !important;
+    background: transparent !important;
 }
 
 .border-gradient-bottom,
 .border-gradient-top {
     position: absolute;
-    width: 250px;
-    height: 250px;
-    top: 50%;
-    left: 50%;
-    margin-top: -125px;
-    margin-left: -125px;
+    width: 250%;
+    height: 250%;
+    top: -75%;
+    left: -75%;
     z-index: 0;
-    pointer-events: none;
+    will-change: transform;
 }
 
 .border-gradient-bottom {
-    background: radial-gradient(circle at 50% 30px, var(--white), transparent 20px);
-    animation: star-spin 5s linear infinite;
+    animation: star-spin linear infinite;
 }
 
 .border-gradient-top {
-    background: radial-gradient(circle at 50% 220px, rgba(255, 255, 255, 0.4), transparent 20px);
-    animation: star-spin 5s linear infinite;
+    animation: star-spin linear infinite reverse;
+}
+
+.star-border-container .inner-content {
+    position: relative;
+    z-index: 1;
+    background-color: var(--primary-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 3px; 
+    padding: 8px 18px;
+    transition: var(--transition);
+}
+
+.star-border-container:hover .inner-content {
+    background-color: var(--light-silver);
+    color: var(--primary-dark) !important;
 }
 
 @keyframes star-spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 .profile-photo-section {
