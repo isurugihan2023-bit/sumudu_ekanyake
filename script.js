@@ -506,6 +506,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const serviceModalBody = document.getElementById('service-modal-body');
 
     if (serviceCards.length > 0 && serviceModal) {
+        const serviceModalContent = serviceModal.querySelector('.modal-content');
+        
+        // Add spotlight logic matching React Snippet
+        if (serviceModalContent) {
+            serviceModalContent.addEventListener('mousemove', (e) => {
+                const rect = serviceModalContent.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                serviceModalContent.style.setProperty('--mouse-x', `${x}px`);
+                serviceModalContent.style.setProperty('--mouse-y', `${y}px`);
+                serviceModalContent.style.setProperty('--spotlight-color', 'rgba(255, 255, 255, 0.08)');
+            });
+        }
         serviceCards.forEach(card => {
             card.addEventListener('click', () => {
                 const contentHtml = card.querySelector('.service-content').innerHTML;
